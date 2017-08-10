@@ -1,6 +1,8 @@
 package cn.niceabc.springbootadminclient;
 
+import cn.niceabc.springbootadminclient.entity.CustomTraceManageer;
 import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.trace.TraceProperties;
 import org.springframework.boot.actuate.trace.TraceRepository;
@@ -23,9 +25,9 @@ public class Application {
 
     // 自定义TraceFilter
     @Bean
-    public IncludeBodyTraceFilter getTraceFilter(TraceRepository repository,
-                                                 TraceProperties properties,
-                                                 ObjectProvider<ErrorAttributes> errorAttributes) {
+    public IncludeBodyTraceFilter getTraceFilter(@Autowired CustomTraceManageer repository,
+                                                 @Autowired TraceProperties properties,
+                                                 @Autowired ObjectProvider<ErrorAttributes> errorAttributes) {
         return new IncludeBodyTraceFilter(repository, properties, errorAttributes);
     }
 
