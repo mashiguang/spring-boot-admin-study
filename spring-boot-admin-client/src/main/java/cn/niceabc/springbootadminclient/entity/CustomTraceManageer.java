@@ -46,6 +46,11 @@ public class CustomTraceManageer implements TraceRepository {
         httpTrace.setTimestamp(now);
         httpTrace.setTimeTaken(Long.valueOf(traceInfo.get("timeTaken").toString()));
 
+        Map<String, Object> headers = (Map<String, Object>) traceInfo.get("headers");
+        Map<String, Object> response = (Map<String, Object>) headers.get("response");
+        String status = (String) response.get("status");
+        httpTrace.setStatus(status);
+
         httpTraceRepository.save(httpTrace);
     }
 }

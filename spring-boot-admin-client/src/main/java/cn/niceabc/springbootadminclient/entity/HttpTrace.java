@@ -18,6 +18,8 @@ public class HttpTrace{
     @Column(columnDefinition = "text")
     private String content;
 
+    private String status;
+
     public Long getId() {
         return id;
     }
@@ -48,5 +50,13 @@ public class HttpTrace{
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
