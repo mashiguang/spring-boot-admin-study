@@ -9,6 +9,8 @@ services:
       - 8080
   spring-boot-admin-client:
     build: ./spring-boot-admin-client
+    volumes:
+      - '/tmp:/tmp'
     ports:
       - "81:81"
     expose:
