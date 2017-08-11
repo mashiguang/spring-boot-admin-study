@@ -11,6 +11,8 @@ services:
     build: ./spring-boot-admin-client
     ports:
       - "81:81"
+    volumes:
+      - "/tmp:/tmp"
     expose:
       - 81
     links:
