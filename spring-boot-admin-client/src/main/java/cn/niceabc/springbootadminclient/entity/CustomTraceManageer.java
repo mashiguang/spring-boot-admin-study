@@ -24,7 +24,7 @@ public class CustomTraceManageer implements TraceRepository {
 
         List<Trace> result = new ArrayList<>();
         // List<HttpTrace> all = httpTraceRepository.findAll();
-        List<HttpTrace> all = httpTraceRepository.findTop100OrOrderByIdDesc();
+        List<HttpTrace> all = httpTraceRepository.findTop99OrderByIdDesc();
         all.forEach(httpTrace -> {
             Trace trace = gson.fromJson(httpTrace.getContent(), Trace.class);
             result.add(trace);
