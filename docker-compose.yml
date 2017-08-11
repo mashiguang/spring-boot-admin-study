@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  spring-boot-admin-server:
+    build: ./spring-boot-admin-server
+    ports:
+      - "8080:8080"
+    expose:
+      - 8080
+  spring-boot-admin-client:
+    build: ./spring-boot-admin-client
+    ports:
+      - "81:81"
+    expose:
+      - 81
+    links:
+      - spring-boot-admin-server
