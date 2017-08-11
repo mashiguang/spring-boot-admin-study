@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface HttpTraceRepository extends JpaRepository<HttpTrace, Long> {
 
-    List<HttpTrace> findTop99OrderByIdDesc();
+    List<HttpTrace> findTop99ByOrderByTimestampDesc();
 }
